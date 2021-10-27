@@ -1,0 +1,22 @@
+.sidenav {
+  background-color: orange;
+}
+
+.sidenav li > * {
+  color: white !important;
+}
+
+.indigo {
+}
+
+/* .card-image img {
+} */
+
+.preview {
+  width: 200px !important;
+  height: auto;
+}
+
+.container a {
+  padding-left: 20px;
+}
