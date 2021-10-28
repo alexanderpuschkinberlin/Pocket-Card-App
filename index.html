@@ -48,7 +48,7 @@
       </ul>
     </div>
 
-    <div id="homescreen" class="page-content row">
+    <div id="homescreen" class="hide page-content row">
       <!-- Preview Rush Card-->
       <div id="rush" class="traverse col s12 m7">
         <div class="card horizontal">
@@ -111,18 +111,79 @@
       <!-- Card Screen -->
     </div>
 
-    <div id="rushcard" class="hide">
+    <div id="rushcard" class="">
       <button id="close">Close Card</button>
-      <ul id="tabs-swipe-demo" class="tabs">
+      <ul id="tabs-swipe-demo" class="center tabs">
         <li class="tab col s3"><a class="active" href="#card">Card</a></li>
         <li class="tab col s3">
           <a href="#literature">Literature</a>
         </li>
         <li class="tab col s3"><a href="#normval">Norm Values</a></li>
       </ul>
+      <!-- Card Tab -->
       <div id="card" class="col s12 grey">Card</div>
+      <!-- Literature Tab -->
       <div id="literature" class="col s12 grey">Literature</div>
-      <div id="normval" class="col s12 grey">Norm Values</div>
+      <!-- Norm Tab Tab -->
+      <div id="normval" class="container col s12">
+        <h4>Sonographische Normwerte</h4>
+        <ul class="collection with-header">
+          <li class="orange lighten-5 collection-header"><h5>Herz</h5></li>
+          <li class="collection-item">
+            <h6 class="title">Akute Rechtsherzbelastung</h6>
+            <p>RV > LV, paradoxe Septumbewegung, D-Sign</p>
+          </li>
+          <li class="collection-item">
+            <h6 class="title">Perikardtamponade</h6>
+            <p>"swinging heart", RA/RV kollabieren"</p>
+          </li>
+          <li class="collection-item">
+            <h6 class="title">Linksventrikuläre Pumpfunktion</h6>
+            <p>
+              Leicht reduziert 45-54%<br />
+              Mittelgradig reduziert 30-44%<br />
+              Hochgradig eingeschränkt <30%
+            </p>
+          </li>
+          <li class="orange lighten-5 collection-header"><h5>Leber</h5></li>
+          <li class="collection-item">
+            <p>
+              12-14cm x 12-13cm <br />
+              DHC 6-7mm Z.n CHE 9-11mm
+            </p>
+          </li>
+          <li class="orange lighten-5 collection-header">
+            <h5>Gallenblase</h5>
+          </li>
+          <li class="collection-item">
+            <p>
+              9-11cm x 4cm, Volumen 70ml (nüchtern) <br />
+              Wand: Nüchtern 2-4mm postprandial 4-8mm > 3mm suspekt
+            </p>
+          </li>
+          <li class="orange lighten-5 collection-header"><h5>Milz</h5></li>
+          <li class="collection-item">
+            <p>11cm x 4cm x 7cm</p>
+          </li>
+          <li class="orange lighten-5 collection-header"><h5>Nieren</h5></li>
+          <li class="collection-item">
+            <p>9-11cm x 4-7cm x 3-5cm</p>
+          </li>
+          <li class="orange lighten-5 collection-header"><h5>Aorta</h5></li>
+          <li class="collection-item">
+            <p>Aorta < 3cm</p>
+          </li>
+          <li class="orange lighten-5 collection-header">
+            <h5>Vena cava inferior</h5>
+          </li>
+          <li class="collection-item">
+            <p>
+              Volumenstatus: VCI kollabtisch? <br />VCI > 2.5cm <br />VCI <
+              1.5cm
+            </p>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- Compiled and minified JavaScript -->
