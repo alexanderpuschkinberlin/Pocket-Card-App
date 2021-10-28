@@ -14,7 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Learning Materialize</title>
+    <title>Pocket Card App</title>
   </head>
   <body>
     <!--Homescreen-->
@@ -48,9 +48,9 @@
       </ul>
     </div>
 
-    <div class="page-content row">
+    <div id="homescreen" class="page-content row">
       <!-- Preview Rush Card-->
-      <div class="col s12 m7">
+      <div id="rush" class="traverse col s12 m7">
         <div class="card horizontal">
           <div class="card-image">
             <img src="./assets/img/ultrasound.jpg" />
@@ -109,6 +109,20 @@
       </div>
 
       <!-- Card Screen -->
+    </div>
+
+    <div id="rushcard" class="hide">
+      <button id="close">Close Card</button>
+      <ul id="tabs-swipe-demo" class="tabs">
+        <li class="tab col s3"><a class="active" href="#card">Card</a></li>
+        <li class="tab col s3">
+          <a href="#literature">Literature</a>
+        </li>
+        <li class="tab col s3"><a href="#normval">Norm Values</a></li>
+      </ul>
+      <div id="card" class="col s12 grey">Card</div>
+      <div id="literature" class="col s12 grey">Literature</div>
+      <div id="normval" class="col s12 grey">Norm Values</div>
     </div>
 
     <!-- Compiled and minified JavaScript -->
