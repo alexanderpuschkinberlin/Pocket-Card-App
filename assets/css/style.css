@@ -9,14 +9,16 @@
 .indigo {
 }
 
-/* .card-image img {
-} */
 
 .preview {
-  width: 200px !important;
-  height: auto;
+  width: auto;
+  height: 200px !important;
 }
 
 .container a {
   padding-left: 20px;
+}
+
+.card:hover{
+  border: red solid 2px;
 }
