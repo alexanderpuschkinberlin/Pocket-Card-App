@@ -1,9 +1,15 @@
+//content for the additional info box in the RUSH Card VIEW
 var rushInfo = {
-  1: {title: "Info when clicked 1", steps: ["Step1", "Step2"]},
-  2: "Info when clicked 2",
-  3: "Info when clicked 3",
-  4: "Info when clicked 4",
+  1: {title: "Suche beim Herz nach:", steps: ["Perikarderguss/tamponade", "Akute Rechtsherzbelastung", "Linksventrikuläre Pumpfunktion"]},
+  2: {title: "Suche beim Inferiore VC nach:", steps: ["Volumenstatus: VCI kollaptisch", "VCI > 2,5 cm", "VCI < 1,5 cm"]},
+  3: {title: "Suche beim Morrison nach:", steps: ["Freie Flüssigkeit"]},
+  4: {title: "Suche beim der Aorta nach:", steps: ["Aorta Durchmesser > 3 cm"]},
+  5: {title: "Suche beim Pneumothorax nach:", steps: ["Lungengleiten", "B-Lines", "Lungenpuls", "M-Mode: Seashore-Sign, Barcode-Sign"]},
+  6: {title: "Suche beim XYZ nach:", steps: ["Anweisung", "Anweisung", "Anweisung"]},
+  7: {title: "Suche beim XYZ nach:", steps: ["Anweisung", "Anweisung", "Anweisung"]},
+  8: {title: "Suche beim XYZ nach:", steps: ["Anweisung", "Anweisung", "Anweisung"]},
 }
+
 
 $(document).ready(function () {
   $(".sidenav").sidenav({ edge: "right" });
@@ -31,16 +37,17 @@ $(document).ready(function () {
   $(".tabs").tabs();
 });
 
-//event listner within the card view
+//event listner within the card view to trigger the additional Information Box
 $("label > span").click(showRushItemInfo);
 function showRushItemInfo(event) {
   var selectedItem = event.target.getAttribute("data-listItem");
   var itemInfo = rushInfo[selectedItem] 
-  console.log(itemInfo);
+  $("#rushInfoCard-title").text(itemInfo.title)
+
   var info = "";
   for(var i = 0; i< itemInfo.steps.length; i++){
     info += itemInfo.steps[i] + ", ";
-    var item = $("<li>").text("dummy" + itemInfo.steps[i])
+    var item = $("<li>").text("" + itemInfo.steps[i])
     $("#rushInfoCard").append(item);
   }
 }
