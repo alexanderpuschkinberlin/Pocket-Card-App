@@ -119,32 +119,33 @@
             <div class="card-stacked">
               <div class="card-content">
                 <p>
-                  <form action="#">
+                  <!-- examination check list with checkboxes -->
+                  <form id="rush-checklist" action="#">
                     <p>
-                      <label>
+                      <label >
                         <input type="checkbox" />
-                        <span>1. Parasternal lange Achse</span>
+                        <span data-listItem="1">1. Parasternal lange Achse</span>
                       </label>
                     </p>
 
                     <p>
                       <label>
                         <input type="checkbox" />
-                        <span>2. Apikaler Vierkammer Blick</span>
+                        <span data-listItem="2">2. Apikaler Vierkammer Blick</span>
+                      </label>
+                    </p>
+
+                    <p data-listItem="3">
+                      <label>
+                        <input type="checkbox" />
+                        <span data-listItem="3">3. Inferiore Vena Cava</span>
                       </label>
                     </p>
 
                     <p>
                       <label>
                         <input type="checkbox" />
-                        <span>3. Inferiore Vena Cava</span>
-                      </label>
-                    </p>
-
-                    <p>
-                      <label>
-                        <input type="checkbox" />
-                        <span>4. Morison Pouch mit
+                        <span data-listItem="4">4. Morison Pouch mit
                           Hemithorax</span>
                       </label>
                     </p>
@@ -159,7 +160,7 @@
                     <p>
                       <label>
                         <input type="checkbox" />
-                        <span>6. Harnblase (Excavatio rectouterina/retrovesicalis)</span> 
+                        <span class="inline">6. Harnblase (Excavatio rectouterina/retrovesicalis)</span> 
                       </label>
                     </p>
 
@@ -177,25 +178,46 @@
                       </label>
                     </p>
 
-                    
-
                     </form>
                 </p>
               </div>
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
+             
+              
+
+              
+
+
             </div>
 
             <div class="card-image">
-              <img class="responsive-img" src="./assets/img/body_rush.png">
+              <img class="responsive-img card-main-image" src="./assets/img/body_rush.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Box with additional info within the card view -->
+     
+      <div class="col s12 m7">
+        <h2 class="header">Horizontal Card</h2>
+        <div class="card horizontal">
+          
+          <div class="card-stacked">
+            <div  id="rushInfoCard"class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
             </div>
           </div>
         </div>
       </div>
 
+
+
+
       <!-- Literature Tab -->
       <div id="literature" class="col s12 grey">Literature</div>
+
       <!-- Norm Tab Tab -->
       <div id="normval" class="container col s12">
         <h4>Sonographische Normwerte</h4>
