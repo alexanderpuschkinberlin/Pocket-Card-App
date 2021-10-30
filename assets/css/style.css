@@ -9,7 +9,6 @@
 .indigo {
 }
 
-
 .preview {
   width: auto;
   height: 200px !important;
@@ -19,6 +18,14 @@
   padding-left: 20px;
 }
 
-.card:hover{
+.card:hover {
   border: red solid 2px;
+}
+
+.card-main-image {
+  max-width: 250px !important;
+}
+
+label > span {
+  display: inline !important;
 }
