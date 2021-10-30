@@ -28,6 +28,7 @@ function openCard(event) {
 $("#close").click(closeCard);
 function closeCard() {
   $(".brand-logo").text("Pocket Card App");
+  console.log("hello");
   $("#rushcard").addClass("hide");
   $("#homescreen").removeClass("hide");
 }
@@ -35,6 +36,11 @@ function closeCard() {
 //navigate tabs
 $(document).ready(function () {
   $(".tabs").tabs();
+  $(".brand-logo").text("RUSH Protocol");
+  $("#rushcard").addClass("hide");
+  $("#homescreen").removeClass("hide");
+
+
 });
 
 //event listner within the card view to trigger the additional Information Box
@@ -44,6 +50,7 @@ function showRushItemInfo(event) {
   var itemInfo = rushInfo[selectedItem] 
   $("#rushInfoCard-title").text(itemInfo.title)
 
+  $("#rushInfoCard").empty();
   var info = "";
   for(var i = 0; i< itemInfo.steps.length; i++){
     info += itemInfo.steps[i] + ", ";
