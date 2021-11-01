@@ -58,3 +58,74 @@ function showRushItemInfo(event) {
     $("#rushInfoCard").append(item);
   }
 }
+
+
+//APIs & Logic
+
+// Wikipedia API
+
+const WIKIPEDIA_API_END_POINT = template`https://en.wikipedia.org/api/rest_v1/page/summary/${'searchTerm'}`
+
+function getSearchResultsFromWiki() {
+  var inputEl = $("#search-input");
+  var searchTerm = inputEl.val().replace(/\s/g, "_");
+  getWikiAPI(searchTerm)
+}
+
+function getWikiAPI(searchTerm) {
+  var url = WIKIPEDIA_API_END_POINT({ searchTerm: searchTerm });
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (data.title == "Not found") {
+        return;
+      }
+      console.log(data);
+      populateSummary(data);
+    });
+}
+
+function populateSummary(data) {
+  var outputEl = $("#wiki-results");
+  outputEl.html("");
+  outputEl.append([
+    $("<div>", { html: data.extract_html }),
+    $("<a>", { text: "Read more..", href: data.content_urls.desktop.page })
+  ])
+
+}
+
+
+// COVID-19 API
+
+const COVID_API_ENDPOINT = template`https://covid19-eu-data-api-gamma.now.sh/api/countries?alpha2=${"countryCode"}&days=${"days"}`
+
+getCOVIDInfo();
+
+function getCOVIDInfo() {
+  var countryCode = "de";
+  var days = 1;
+  var url = COVID_API_ENDPOINT({ countryCode: countryCode, days: days });
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      //populateSummary(data);
+    });
+}
+
+function template(strings, ...keys) {
+  return (function (...values) {
+    let dict = values[values.length - 1] || {};
+    let result = [strings[0]];
+    keys.forEach(function (key, i) {
+      let value = Number.isInteger(key) ? values[key] : dict[key];
+      result.push(value, strings[i + 1]);
+    });
+    return result.join('');
+  });
+}

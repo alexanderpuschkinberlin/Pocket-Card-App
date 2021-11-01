@@ -29,3 +29,9 @@
 label > span {
   display: inline !important;
 }
+
+#wiki-results, 
+#search-input{
+  color: white;
+
+}
