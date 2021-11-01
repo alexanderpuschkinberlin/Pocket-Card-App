@@ -14,24 +14,44 @@
   height: 200px !important;
 }
 
+.center-main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .container a {
   padding-left: 20px;
 }
 
 .card:hover {
   border: red solid 2px;
+  /* background-color: cornflowerblue;
+  opacity: 0.8;
+  transition: 1s; */
 }
 
 .card-main-image {
-  max-width: 250px !important;
+  width: 100%;
+  min-width: 100px;
+  max-width: 230px;
+  height: auto;
+  padding-right: 10px;
+
+  /* max-width: 100% !important; */
+  /* min-width: 100px !important; */
+}
+
+.rush-card-container {
+  padding: 10px;
 }
 
 label > span {
   display: inline !important;
 }
 
-#wiki-results, 
-#search-input{
+#wiki-results,
+#search-input {
   color: white;
-
 }

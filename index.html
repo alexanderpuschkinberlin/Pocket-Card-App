@@ -25,36 +25,37 @@
           <div class="container">
             <a href="#" class="brand-logo left">Pocket Card App</a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="">COVID Stats</a></li>
-              <li><a href="">Home</a></li>
-              <li><a href="">About</a></li>
+              <li class="covidstats"><a>COVID Stats</a></li>
+              <li class="close"><a>Home</a></li>
+              
+              <li><a href="about.html">About</a></li>
               <li><a href="">Contact</a></li>
             </ul>
             <a
-              href="#"
-              class="sidenav-trigger right"
-              data-target="mobile-links"
+            href="#"
+            class="sidenav-trigger right"
+            data-target="mobile-links"
             >
-              <i class="material-icons">menu</i>
-            </a>
-          </div>
-        </nav>
-      </div>
-
-      <!-- Navbar medium down-->
-      <ul class="sidenav" id="mobile-links">
-        <li><a href="">COVID Stats</a></li>
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
+            <i class="material-icons">menu</i>
+          </a>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- Navbar medium down-->
+    <ul class="sidenav" id="mobile-links">
+      <li class="covidstats"><a>COVID Stats</a></li>
+        <li class="close"><a>Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="">Contact</a></li>
       </ul>
     </div>
 
     <!-- =============== Homescreen =============== -->
-    <div id="homescreen" class="hide page-content row">
-      <button class="covidstats">COVID Stats</button>
+    <div id="homescreen" class="hide page-content row ">
+     
       <!-- Preview Rush Card-->
-      <div id="rush" class="traverse col s12 m7">
+      <div id="rush" class="container center-align traverse ">
         <div class="card horizontal">
           <div class="card-image">
             <img src="./assets/img/ultrasound.jpg" />
@@ -98,18 +99,19 @@
       </div>
 
       <!-- API Section -->
-      <div class="col s12 m7 indigo">
+      <div class=" container center-align indigo">
         <!--API Content here-->
         <input type="text" id="search-input">
-        <button onclick="getSearchResultsFromWiki()">search</button>
+        <button class= "btn" onclick="getSearchResultsFromWiki()">search</button>
         <div id="wiki-results"></div>
       </div>
 
     </div>
     
     <!-- =============== Card Screen =============== -->
-    <div id="rushcard" class="">
-      <button class="close">Close Card</button>
+   
+    <div id="rushcard" class="rush-card-container">
+      
       <ul id="tabs-swipe-demo" class="center tabs">
         <li class="tab col s3"><a class="active" href="#card">Card</a></li>
         <li class="tab col s3">
@@ -195,8 +197,8 @@
 
             </div>
 
-            <div class="card-image">
-              <img class="responsive-img card-main-image" src="./assets/img/body_rush.png">
+            <div>
+              <img class="card-main-image" src="./assets/img/body_rush.png">
             </div>
           </div>
         </div>
@@ -280,10 +282,11 @@
         </ul>
       </div>
     </div>
+   
 
     <!-- =============== COVID Stats Page ===============-->
     <div id="covid" class="hide">
-      <button class="close">Close Card</button>
+      
       <div class="container col s12">
         <table class="bordered">
           <thead class="red lighten-4">
