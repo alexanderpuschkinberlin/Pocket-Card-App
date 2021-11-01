@@ -25,6 +25,7 @@
           <div class="container">
             <a href="#" class="brand-logo left">Pocket Card App</a>
             <ul class="right hide-on-med-and-down">
+              <li><a href="">COVID Stats</a></li>
               <li><a href="">Home</a></li>
               <li><a href="">About</a></li>
               <li><a href="">Contact</a></li>
@@ -42,13 +43,16 @@
 
       <!-- Navbar medium down-->
       <ul class="sidenav" id="mobile-links">
-        <li ><a href="">Home</a></li>
+        <li><a href="">COVID Stats</a></li>
+        <li><a href="">Home</a></li>
         <li><a href="">About</a></li>
         <li><a href="">Contact</a></li>
       </ul>
     </div>
 
+    <!-- =============== Homescreen =============== -->
     <div id="homescreen" class="hide page-content row">
+      <button class="covidstats">COVID Stats</button>
       <!-- Preview Rush Card-->
       <div id="rush" class="traverse col s12 m7">
         <div class="card horizontal">
@@ -65,7 +69,7 @@
       </div>
 
       <!-- Preview FATE Card-->
-      <div class="col s12 m7">
+      <div class="hide col s12 m7">
         <div class="card horizontal">
           <div class="card-image">
             <img src="./assets/img/ultrasound.jpg" />
@@ -79,7 +83,7 @@
         </div>
       </div>
       <!-- Preview eFAST Card-->
-      <div class="col s12 m7">
+      <div class="hide col s12 m7">
         <div class="card horizontal">
           <div class="card-image">
             <img src="./assets/img/ultrasound.jpg" />
@@ -101,11 +105,11 @@
         <div id="wiki-results"></div>
       </div>
 
-      <!-- Card Screen -->
     </div>
-
+    
+    <!-- =============== Card Screen =============== -->
     <div id="rushcard" class="">
-      <button id="close">Close Card</button>
+      <button class="close">Close Card</button>
       <ul id="tabs-swipe-demo" class="center tabs">
         <li class="tab col s3"><a class="active" href="#card">Card</a></li>
         <li class="tab col s3">
@@ -274,6 +278,132 @@
             </p>
           </li>
         </ul>
+      </div>
+    </div>
+
+    <!-- =============== COVID Stats Page ===============-->
+    <div id="covid" class="hide">
+      <button class="close">Close Card</button>
+      <div class="container col s12">
+        <table class="bordered">
+          <thead class="red lighten-4">
+            <tr>
+                <th data-field="states">State</th>
+                <th data-field="cases">Cases</th>
+                <th data-field="changeCases">&#916;</th>
+                <th data-field="deaths">Deaths</th>
+                <th data-field="changeDeaths">&#916;</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>Baden-Württemberg</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Bayern</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Berlin</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Brandenburg</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Bremen</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Hamburg</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Hessen</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Mecklenburg-Vorpommern</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Niedersachsen</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Nordrhein-Westfalen</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Rheinland-Pfalz</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Saarland</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Sachsen</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Schleswig-Holstein</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Thüringen</td>
+              <td>2000</td>
+              <td>200</td>
+              <td>200</td>
+              <td>20</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
