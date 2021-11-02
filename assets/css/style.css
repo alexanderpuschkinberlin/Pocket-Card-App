@@ -25,7 +25,7 @@
 }
 
 .card:hover {
-  border: red solid 2px;
+  border: #e3f2fd solid 2px;
   /* background-color: cornflowerblue;
   opacity: 0.8;
   transition: 1s; */
@@ -108,3 +108,17 @@ label>span {
   to {transform: rotate(359deg);}
 }
 
+/* =============================== Styling App =============================== */
+/* Styling of the Nav Bar in bigger screens */
+.nav-wrapper {
+  background-color: #4C8076;
+}
+
+/* Styling of the Nav Bar in smaller screens */
+.sidenav {
+  background-color: #4C8076;
+}
+
+#searchfield {
+  background-color: #C4FCF0;
+}
