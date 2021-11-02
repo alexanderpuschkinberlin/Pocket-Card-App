@@ -1,3 +1,26 @@
+const COUNTRIES = {
+  "Austria": "at",
+  "Belgium": "be",
+  "Switzerland": "ch",
+  "Czech Republic": "cz",
+  "Germany": "de",
+  "United Kingdom": "uk",
+  "Spain": "es",
+  "Finland": "fi",
+  "France": "fr",
+  "Greece": "gr",
+  "Hungary": "hu",
+  "Ireland": "ie",
+  "Italy": "it",
+  "Netherlands": "nl",
+  "Norway": "no",
+  "Poland": "pl",
+  "Portugal": "pt",
+  "Sweden": "se",
+  "Slovenia": "si"
+}
+
+
 //content for the additional info box in the RUSH Card VIEW
 var rushInfo = {
   1: {
@@ -98,6 +121,33 @@ function showRushItemInfo(event) {
   }
 }
 
+//Populate COVID Country Dropdown 
+
+$('#country-selection').append(
+  Object.keys(COUNTRIES).map(country => {
+    return $("<option>", {
+      text: country, value: COUNTRIES[country]
+    });
+  }));
+
+// Initiate Dropdowns
+
+$(document).ready(function () {
+  $('select').formSelect();
+});
+
+
+//Toggle Spinner
+
+function toggleSpinner() {
+  var visibility = $(".spinner").css("visibility");
+  if (visibility == "hidden") {
+    $(".spinner").css({ visibility: "visible" })
+  } else {
+    $(".spinner").css({ visibility: "hidden" })
+  }
+}
+
 //APIs & Logic
 
 // Wikipedia API
@@ -107,7 +157,21 @@ const WIKIPEDIA_API_END_POINT = template`https://en.wikipedia.org/api/rest_v1/pa
 function getSearchResultsFromWiki() {
   var inputEl = $("#search-input");
   var searchTerm = inputEl.val().replace(/\s/g, "_");
+  var populatedCheck = checkInLocalStorage(searchTerm);
+  if (populatedCheck) {
+    return;
+  }
   getWikiAPI(searchTerm);
+}
+
+function checkInLocalStorage(searchTerm) {
+  searchTerm = searchTerm.toUpperCase();
+  var storedResult = localStorage.getItem(searchTerm);
+  if (storedResult) {
+    var jsonStoredResult = JSON.parse(storedResult);
+    populateSummary(jsonStoredResult);
+    return true;
+  }
 }
 
 function getWikiAPI(searchTerm) {
@@ -122,7 +186,14 @@ function getWikiAPI(searchTerm) {
       }
       console.log(data);
       populateSummary(data);
+      addToLocalStorage(searchTerm, data);
     });
+}
+
+function addToLocalStorage(searchTerm, data) {
+  searchTerm = searchTerm.toUpperCase();
+  var stringData = JSON.stringify(data);
+  localStorage.setItem(searchTerm, stringData);
 }
 
 function populateSummary(data) {
@@ -134,15 +205,54 @@ function populateSummary(data) {
   ]);
 }
 
-// COVID-19 API
+/// COVID-19 API
 
-const COVID_API_ENDPOINT = template`https://covid19-eu-data-api-gamma.now.sh/api/countries?alpha2=${"countryCode"}&days=${"days"}`;
+const COVID_API_ENDPOINT = template`https://covid19-eu-data-api-gamma.now.sh/api/countries?alpha2=${"countryCode"}&days=${"days"}`
 
-getCOVIDInfo();
+const HEADERS_MAP = {
+  "cases": "Cases",
+  "cases/100k pop.": "Cases /100k Pop",
+  "deaths": "Deaths",
+  "deaths/100k pop.": "Deaths /100k Pop",
+  "tests": "Tests",
+  "hospitalized": "Hospitalized",
+  "intensive_care": "Intensive Care"
+}
+
+clearTableDiv();
+//getCOVIDInfo();
 
 function getCOVIDInfo() {
-  var countryCode = "de";
-  var days = 1;
+  var countryCode = getSelectedCountry() || "de";
+  var days = getDaysBack() || 1;
+  toggleSpinner();
+  clearDataDate();
+  clearTableDiv();
+  getCOVIDAPIInfo(days, countryCode);
+}
+
+function getDaysBack() {
+  var daysBackInput = $("#days-back")
+  var daysBack = daysBackInput.val();
+  return daysBack;
+
+}
+
+function getSelectedCountry() {
+  var selectionDiv = $("#country-selection")
+  var selectedCountry = selectionDiv.val();
+  return selectedCountry;
+}
+
+function clearTableDiv() {
+  $("#covid-results").html("");
+}
+
+function clearDataDate() {
+  $("#date-of-data").text("");
+}
+
+function getCOVIDAPIInfo(days, countryCode) {
   var url = COVID_API_ENDPOINT({ countryCode: countryCode, days: days });
   fetch(url)
     .then(function (response) {
@@ -150,9 +260,74 @@ function getCOVIDInfo() {
     })
     .then(function (data) {
       console.log(data);
-      //populateSummary(data);
+      data = data[0];
+      setDataDate(data);
+      populateTable(data);
+      toggleSpinner();
     });
 }
+
+function setDataDate(data) {
+  $("#date-of-data").text("Date of Data: " + data.date);
+}
+
+function populateTable(data) {
+  var records = data.records;
+  var headers = Object.keys(records[0]);
+  var locationBase = getLocationBase(headers);
+  HEADERS_MAP[locationBase] = "Location";
+  var tableDiv = $("#covid-results");
+  var tableHeaderDiv = $("<thead>", { class: "red lighten-4" });
+  var tableBodyDiv = $("<tbody>");
+  var headersDiv = createTableRowDiv(headers, HEADERS_MAP, "<th>");
+  tableHeaderDiv.append(headersDiv);
+  console.log(locationBase)
+  records.forEach(record => {
+    var recordRowDiv = createTableRowDiv(headers, record, "<td>", HEADERS_MAP);
+    tableBodyDiv.append(recordRowDiv);
+  })
+  tableDiv.append(tableHeaderDiv);
+  tableDiv.append(tableBodyDiv);
+}
+
+function createTableRowDiv(headers, entry, type, reference) {
+  reference = reference || entry;
+  var tableRowDiv = $("<tr>");
+  headers.forEach(head => {
+    if (entry[head] && reference[head]) {
+      var colValue = proper(entry[head]);
+      var colsDiv = $(type, { text: colValue });
+      tableRowDiv.append(colsDiv);
+    }
+  })
+  return tableRowDiv;
+}
+
+function proper(value) {
+  if (typeof value == "string") {
+    return toTitleCase(value)
+  } else if (typeof value == "number") {
+    return value.toLocaleString(
+      "de-DE",
+      { maximumFractionDigits: 0 })
+  }
+}
+
+function getLocationBase(headers) {
+  if (headers.includes("lau")) {
+    return "lau";
+  }
+  if (headers.includes("nuts_3")) {
+    return "nuts_3";
+  }
+  if (headers.includes("nuts_2")) {
+    return "nuts_2";
+  }
+  if (headers.includes("nuts_1")) {
+    return "nuts_1";
+  }
+  return "State Wide";
+};
 
 function template(strings, ...keys) {
   return function (...values) {
@@ -164,4 +339,13 @@ function template(strings, ...keys) {
     });
     return result.join("");
   };
+}
+
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
 }
