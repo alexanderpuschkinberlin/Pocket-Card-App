@@ -1,415 +1,325 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!--Import Google Icon Font-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Pocket Card App</title>
-  </head>
-  <body>
-    <!--Homescreen-->
-    <div class="homescreen">
-      <!-- Navbar medium up-->
-      <div class="navbar-fixed">
-        <nav class="nav-wrapper indigo">
-          <div class="container">
-            <a href="#" class="brand-logo left">Pocket Card App</a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="">COVID Stats</a></li>
-              <li><a href="">Home</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Contact</a></li>
-            </ul>
-            <a
-              href="#"
-              class="sidenav-trigger right"
-              data-target="mobile-links"
-            >
-              <i class="material-icons">menu</i>
-            </a>
-          </div>
-        </nav>
-      </div>
 
-      <!-- Navbar medium down-->
-      <ul class="sidenav" id="mobile-links">
-        <li><a href="">COVID Stats</a></li>
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
-      </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Pocket Card App</title>
+</head>
+
+<body>
+  <!--Homescreen-->
+  <div class="homescreen">
+    <!-- Navbar medium up-->
+    <div class="navbar-fixed">
+      <nav class="nav-wrapper indigo">
+        <div class="container">
+          <a href="#" class="brand-logo left">Pocket Card App</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="">COVID Stats</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+          <a href="#" class="sidenav-trigger right" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+          </a>
+        </div>
+      </nav>
     </div>
 
-    <!-- =============== Homescreen =============== -->
-    <div id="homescreen" class="hide page-content row">
-      <button class="covidstats">COVID Stats</button>
-      <!-- Preview Rush Card-->
-      <div id="rush" class="traverse col s12 m7">
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="./assets/img/ultrasound.jpg" />
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h4 class="header">RUSH Protocol</h4>
-              <p>#Schock #Notfallmedizin #Ganzkörperuntersuchung</p>
-            </div>
+    <!-- Navbar medium down-->
+    <ul class="sidenav" id="mobile-links">
+      <li><a href="">COVID Stats</a></li>
+      <li><a href="">Home</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- =============== Homescreen =============== -->
+  <div id="homescreen" class="hide page-content row">
+    <button class="covidstats">COVID Stats</button>
+    <!-- Preview Rush Card-->
+    <div id="rush" class="traverse col s12 m7">
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="./assets/img/ultrasound.jpg" />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h4 class="header">RUSH Protocol</h4>
+            <p>#Schock #Notfallmedizin #Ganzkörperuntersuchung</p>
           </div>
         </div>
       </div>
-
-      <!-- Preview FATE Card-->
-      <div class="hide col s12 m7">
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="./assets/img/ultrasound.jpg" />
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h4 class="header">FATE Protocol</h4>
-              <p>#Echokardiographie #Notfallmedizin #Herzultraschall</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Preview eFAST Card-->
-      <div class="hide col s12 m7">
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="./assets/img/ultrasound.jpg" />
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h4 class="header">eFAST Protocol</h4>
-              <p>#Trauma #Blutung #Bauch&Brustultraschall</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- API Section -->
-      <div class="col s12 m7 indigo">
-        <!--API Content here-->
-        <input type="text" id="search-input">
-        <button onclick="getSearchResultsFromWiki()">search</button>
-        <div id="wiki-results"></div>
-      </div>
-
     </div>
-    
-    <!-- =============== Card Screen =============== -->
-    <div id="rushcard" class="">
-      <button class="close">Close Card</button>
-      <ul id="tabs-swipe-demo" class="center tabs">
-        <li class="tab col s3"><a class="active" href="#card">Card</a></li>
-        <li class="tab col s3">
-          <a href="#literature">Literature</a>
+
+    <!-- Preview FATE Card-->
+    <div class="hide col s12 m7">
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="./assets/img/ultrasound.jpg" />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h4 class="header">FATE Protocol</h4>
+            <p>#Echokardiographie #Notfallmedizin #Herzultraschall</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Preview eFAST Card-->
+    <div class="hide col s12 m7">
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="./assets/img/ultrasound.jpg" />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h4 class="header">eFAST Protocol</h4>
+            <p>#Trauma #Blutung #Bauch&Brustultraschall</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- API Section -->
+    <div class="col s12 m7 indigo">
+      <!--API Content here-->
+      <input type="text" id="search-input">
+      <button onclick="getSearchResultsFromWiki()">search</button>
+      <div id="wiki-results"></div>
+    </div>
+
+  </div>
+
+  <!-- =============== Card Screen =============== -->
+  <div id="rushcard" class="">
+    <button class="close">Close Card</button>
+    <ul id="tabs-swipe-demo" class="center tabs">
+      <li class="tab col s3"><a class="active" href="#card">Card</a></li>
+      <li class="tab col s3">
+        <a href="#literature">Literature</a>
+      </li>
+      <li class="tab col s3"><a href="#normval">Norm Values</a></li>
+    </ul>
+    <!-- Card Tab -->
+    <div id="card" class="col s12 ">
+      <div class="col s12 m7">
+
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                <!-- examination check list with checkboxes -->
+                <form id="rush-checklist" action="#">
+                  <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span data-listItem="1">1. Parasternal lange Achse</span>
+                    </label>
+                  </p>
+
+                  <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span data-listItem="2">2. Apikaler Vierkammer Blick</span>
+                    </label>
+                  </p>
+
+                  <p data-listItem="3">
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span data-listItem="3">3. Inferiore Vena Cava</span>
+                    </label>
+                  </p>
+
+                  <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span data-listItem="4">4. Morison Pouch mit
+                        Hemithorax</span>
+                    </label>
+                  </p>
+
+                  <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span>5. Koller Pouch mit Hemithorax</span>
+                    </label>
+                  </p>
+
+                  <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span class="inline">6. Harnblase (Excavatio rectouterina/retrovesicalis)</span>
+                    </label>
+                  </p>
+
+                  <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span>7. Abdominelle Aorta</span>
+                    </label>
+                  </p>
+
+                  <p>
+                    <label>
+                      <input class="with-gap" name="group1" type="radio" />
+                      <span>8. Lungendarstellung</span>
+                    </label>
+                  </p>
+
+                </form>
+              </p>
+            </div>
+
+
+
+
+
+
+          </div>
+
+          <div class="card-image">
+            <img class="responsive-img card-main-image" src="./assets/img/body_rush.png">
+          </div>
+        </div>
+      </div>
+      <!-- Box with additional info within the card view -->
+      <div>
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <h4 id="rushInfoCard-title" class="header">Weitere Hinweise</h4>
+            <div id="rushInfoCard" class="card-content"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Literature Tab -->
+    <div id="literature" class="col s12 ">
+      <h4>Literature</h4>
+    </div>
+
+    <!-- Norm Tab Tab -->
+    <div id="normval" class="container col s12">
+      <h4>Sonographische Normwerte</h4>
+      <ul class="collection with-header">
+        <li class="orange lighten-5 collection-header">
+          <h5>Herz</h5>
         </li>
-        <li class="tab col s3"><a href="#normval">Norm Values</a></li>
+        <li class="collection-item">
+          <h6 class="title">Akute Rechtsherzbelastung</h6>
+          <p>RV > LV, paradoxe Septumbewegung, D-Sign</p>
+        </li>
+        <li class="collection-item">
+          <h6 class="title">Perikardtamponade</h6>
+          <p>"swinging heart", RA/RV kollabieren"</p>
+        </li>
+        <li class="collection-item">
+          <h6 class="title">Linksventrikuläre Pumpfunktion</h6>
+          <p>
+            Leicht reduziert 45-54%<br />
+            Mittelgradig reduziert 30-44%<br />
+            Hochgradig eingeschränkt &lt;30%
+          </p>
+        </li>
+        <li class="orange lighten-5 collection-header">
+          <h5>Leber</h5>
+        </li>
+        <li class="collection-item">
+          <p>
+            12-14cm x 12-13cm <br />
+            DHC 6-7mm Z.n CHE 9-11mm
+          </p>
+        </li>
+        <li class="orange lighten-5 collection-header">
+          <h5>Gallenblase</h5>
+        </li>
+        <li class="collection-item">
+          <p>
+            9-11cm x 4cm, Volumen 70ml (nüchtern) <br />
+            Wand: Nüchtern 2-4mm postprandial 4-8mm &gt; 3mm suspekt
+          </p>
+        </li>
+        <li class="orange lighten-5 collection-header">
+          <h5>Milz</h5>
+        </li>
+        <li class="collection-item">
+          <p>11cm x 4cm x 7cm</p>
+        </li>
+        <li class="orange lighten-5 collection-header">
+          <h5>Nieren</h5>
+        </li>
+        <li class="collection-item">
+          <p>9-11cm x 4-7cm x 3-5cm</p>
+        </li>
+        <li class="orange lighten-5 collection-header">
+          <h5>Aorta</h5>
+        </li>
+        <li class="collection-item">
+          <p>Aorta &lt; 3cm</p>
+        </li>
+        <li class="orange lighten-5 collection-header">
+          <h5>Vena cava inferior</h5>
+        </li>
+        <li class="collection-item">
+          <p>
+            Volumenstatus: VCI kollabtisch? <br />VCI > 2.5cm <br />VCI &lt;
+            1.5cm
+          </p>
+        </li>
       </ul>
-      <!-- Card Tab -->
-      <div id="card" class="col s12 ">
-        <div class="col s12 m7">
-          
-          <div class="card horizontal">
-            <div class="card-stacked">
-              <div class="card-content">
-                <p>
-                  <!-- examination check list with checkboxes -->
-                  <form id="rush-checklist" action="#">
-                    <p>
-                      <label >
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span data-listItem="1">1. Parasternal lange Achse</span>
-                      </label>
-                    </p>
+    </div>
+  </div>
 
-                    <p>
-                      <label>
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span data-listItem="2">2. Apikaler Vierkammer Blick</span>
-                      </label>
-                    </p>
-
-                    <p data-listItem="3">
-                      <label>
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span data-listItem="3">3. Inferiore Vena Cava</span>
-                      </label>
-                    </p>
-
-                    <p>
-                      <label>
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span data-listItem="4">4. Morison Pouch mit
-                          Hemithorax</span>
-                      </label>
-                    </p>
-
-                    <p>
-                      <label>
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span>5. Koller Pouch mit Hemithorax</span>
-                      </label>
-                    </p>
-
-                    <p>
-                      <label>
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span class="inline">6. Harnblase (Excavatio rectouterina/retrovesicalis)</span> 
-                      </label>
-                    </p>
-
-                    <p>
-                      <label>
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span>7. Abdominelle Aorta</span>
-                      </label>
-                    </p>
-
-                    <p>
-                      <label>
-                        <input class="with-gap" name="group1" type="radio" />
-                        <span>8. Lungendarstellung</span>
-                      </label>
-                    </p>
-
-                    </form>
-                </p>
-              </div>
-             
-              
-
-              
-
-
-            </div>
-
-            <div class="card-image">
-              <img class="responsive-img card-main-image" src="./assets/img/body_rush.png">
-            </div>
-          </div>
+  <!-- =============== COVID Stats Page ===============-->
+  <div id="covid" class="hide">
+    <button class="close">Close Card</button>
+    <div class="container" id="inputs-container">
+      <div class="row">
+        <div class="col s12 l6">
+          <label for="countries">Choose a Country:</label>
+          <select id="country-selection" onchange="getCOVIDInfo()">
+            <option value="" disabled selected>Choose a country</option>
+          </select>
         </div>
-         <!-- Box with additional info within the card view -->
-          <div >
-            <div class="card horizontal">
-              <div class="card-stacked">
-                <h4 id="rushInfoCard-title" class="header">Weitere Hinweise</h4>
-                <div  id="rushInfoCard"class="card-content"></div>
-                
-              </div>
-            </div>
-          </div>
+        <div class="col s12 l6">
+          <label for="days-back">Days Back:</label>
+          <input type="number" id="days-back" oninput="getCOVIDInfo()">
+        </div>
       </div>
-     
-
-
-
-
-      <!-- Literature Tab -->
-      <div id="literature" class="col s12 "><h4>Literature</h4></div>
-
-      <!-- Norm Tab Tab -->
-      <div id="normval" class="container col s12">
-        <h4>Sonographische Normwerte</h4>
-        <ul class="collection with-header">
-          <li class="orange lighten-5 collection-header"><h5>Herz</h5></li>
-          <li class="collection-item">
-            <h6 class="title">Akute Rechtsherzbelastung</h6>
-            <p>RV > LV, paradoxe Septumbewegung, D-Sign</p>
-          </li>
-          <li class="collection-item">
-            <h6 class="title">Perikardtamponade</h6>
-            <p>"swinging heart", RA/RV kollabieren"</p>
-          </li>
-          <li class="collection-item">
-            <h6 class="title">Linksventrikuläre Pumpfunktion</h6>
-            <p>
-              Leicht reduziert 45-54%<br />
-              Mittelgradig reduziert 30-44%<br />
-              Hochgradig eingeschränkt &lt;30%
-            </p>
-          </li>
-          <li class="orange lighten-5 collection-header"><h5>Leber</h5></li>
-          <li class="collection-item">
-            <p>
-              12-14cm x 12-13cm <br />
-              DHC 6-7mm Z.n CHE 9-11mm
-            </p>
-          </li>
-          <li class="orange lighten-5 collection-header">
-            <h5>Gallenblase</h5>
-          </li>
-          <li class="collection-item">
-            <p>
-              9-11cm x 4cm, Volumen 70ml (nüchtern) <br />
-              Wand: Nüchtern 2-4mm postprandial 4-8mm &gt; 3mm suspekt
-            </p>
-          </li>
-          <li class="orange lighten-5 collection-header"><h5>Milz</h5></li>
-          <li class="collection-item">
-            <p>11cm x 4cm x 7cm</p>
-          </li>
-          <li class="orange lighten-5 collection-header"><h5>Nieren</h5></li>
-          <li class="collection-item">
-            <p>9-11cm x 4-7cm x 3-5cm</p>
-          </li>
-          <li class="orange lighten-5 collection-header"><h5>Aorta</h5></li>
-          <li class="collection-item">
-            <p>Aorta &lt; 3cm</p>
-          </li>
-          <li class="orange lighten-5 collection-header">
-            <h5>Vena cava inferior</h5>
-          </li>
-          <li class="collection-item">
-            <p>
-              Volumenstatus: VCI kollabtisch? <br />VCI > 2.5cm <br />VCI &lt;
-              1.5cm
-            </p>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="col 12">
+          <p  id= "date-of-data"></p>
+        </div>
       </div>
     </div>
-
-    <!-- =============== COVID Stats Page ===============-->
-    <div id="covid" class="hide">
-      <button class="close">Close Card</button>
-      <div class="container col s12">
-        <table class="bordered">
-          <thead class="red lighten-4">
-            <tr>
-                <th data-field="states">State</th>
-                <th data-field="cases">Cases</th>
-                <th data-field="changeCases">&#916;</th>
-                <th data-field="deaths">Deaths</th>
-                <th data-field="changeDeaths">&#916;</th>
-            </tr>
-          </thead>
-  
-          <tbody>
-            <tr>
-              <td>Baden-Württemberg</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Bayern</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Berlin</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Brandenburg</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Bremen</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Hamburg</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Hessen</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Mecklenburg-Vorpommern</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Niedersachsen</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Nordrhein-Westfalen</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Rheinland-Pfalz</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Saarland</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Sachsen</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Schleswig-Holstein</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Thüringen</td>
-              <td>2000</td>
-              <td>200</td>
-              <td>200</td>
-              <td>20</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div id="results-div">
     </div>
+    <div class="container col s12" id="covid-table-container">
+      <table class="bordered" id="covid-results">
+      </table>
+    </div>
+    <div class="spinner"></div>
+  </div>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
