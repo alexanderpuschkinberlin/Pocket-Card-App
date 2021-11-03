@@ -176,7 +176,11 @@ function populateSummary(data) {
   outputEl.html("");
   outputEl.append([
     $("<div>", { html: data.extract_html }),
-    $("<a>", { text: "Read more..", href: data.content_urls.desktop.page }),
+    $("<a>", {
+      text: "Read more..",
+      href: data.content_urls.desktop.page,
+      target: "_blank",
+    }),
   ]);
 }
 
