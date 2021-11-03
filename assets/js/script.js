@@ -188,12 +188,14 @@ const HEADERS_MAP = {
   intensive_care: "Intensive Care",
 };
 
+const COLUMNS_LIMIT = 5;
+
 clearTableDiv();
 //getCOVIDInfo();
 
 function getCOVIDInfo() {
   var countryCode = getSelectedCountry() || "de";
-  var days = getDaysBack() || 1;
+  var days = getDaysBack();
   toggleSpinner();
   clearDataDate();
   clearTableDiv();
@@ -203,6 +205,10 @@ function getCOVIDInfo() {
 function getDaysBack() {
   var daysBackInput = $("#days-back");
   var daysBack = daysBackInput.val();
+  if (daysBack == "") {
+    daysBack = 1;
+    daysBackInput.val(1);
+  }
   return daysBack;
 }
 
@@ -256,13 +262,17 @@ function populateTable(data) {
   });
   tableDiv.append(tableHeaderDiv);
   tableDiv.append(tableBodyDiv);
+  delete HEADERS_MAP[locationBase];
 }
 
 function createTableRowDiv(headers, entry, type, reference) {
   reference = reference || entry;
   var tableRowDiv = $("<tr>");
-  headers.forEach((head) => {
-    if (entry[head] && reference[head]) {
+  headers.forEach((head, i) => {
+    if (i > COLUMNS_LIMIT) {
+      return;
+    }
+    if (reference[head]) {
       var colValue = proper(entry[head]);
       var colsDiv = $(type, { text: colValue });
       tableRowDiv.append(colsDiv);
@@ -276,6 +286,8 @@ function proper(value) {
     return toTitleCase(value);
   } else if (typeof value == "number") {
     return value.toLocaleString("de-DE", { maximumFractionDigits: 0 });
+  } else if (value === null) {
+    return "-";
   }
 }
 
@@ -292,7 +304,6 @@ function getLocationBase(headers) {
   if (headers.includes("nuts_1")) {
     return "nuts_1";
   }
-  return "State Wide";
 }
 
 function template(strings, ...keys) {

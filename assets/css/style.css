@@ -55,20 +55,8 @@ label>span {
   color: white;
 }
 
-#inputs-container {
-  border: solid black dotted;
-}
-
-#inputs-container  select, input {
-  width: 50%;
-}
-
-#country-selection{
-  border: solid black dotted;
-}
-
 #covid-table-container{
-  border: solid black dotted;
+  font-size: smaller;
 }
 
 
