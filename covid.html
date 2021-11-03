@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,13 +18,12 @@
     <title>Pocket Card App</title>
   </head>
   <body>
-    <!--Homescreen-->
     <div class="homescreen">
       <!-- Navbar medium up-->
       <div class="navbar-fixed">
         <nav class="nav-wrapper">
           <div class="container">
-            <a href="#" class="brand-logo left">Pocket Card App</a>
+            <a href="#" class="brand-logo left">Covid Stats</a>
             <ul class="right hide-on-med-and-down">
               <li><a href="covid.html">COVID Stats</a></li>
               <li><a href="index.html">Home</a></li>
@@ -50,27 +50,33 @@
       </ul>
     </div>
 
-    <!-- =============== Homescreen =============== -->
-    <div id="homescreen" class="hide page-content row">
-      <!-- Preview Rush Card-->
-      <div class="container center-align traverse">
-        <a href="rush.html">
-          <div class="card horizontal">
-            <div class="card-image">
-              <img src="./assets/img/ultrasound.jpg" />
-            </div>
+    <!-- Content of the Page here-->
+    <!-- =============== COVID Stats Page ===============-->
+    <div id="covid" class="container center-align">
+      <div class="container" id="inputs-container">
+        <div class="row">
+          <div class="col s12 l6">
+            <label for="countries">Choose a Country:</label>
+            <select id="country-selection" onchange="getCOVIDInfo()">
+              <option value="" disabled selected>Choose a country</option>
+            </select>
           </div>
-        </a>
+          <div class="col s12 l6">
+            <label for="days-back">Days Back:</label>
+            <input type="number" id="days-back" oninput="getCOVIDInfo()" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col 12">
+            <p id="date-of-data"></p>
+          </div>
+        </div>
       </div>
-      <!-- API Section -->
-      <div class="center-align container">
-        <!--API Content here-->
-        <input type="text" id="search-input" placeholder="Search here..." class="blue lighten-5 black-text"/>
-        <button class="btn-large" onclick="getSearchResultsFromWiki()">
-          search
-        </button>
-        <div id="wiki-results"></div>
+      <div id="results-div"></div>
+      <div class="container col s12" id="covid-table-container">
+        <table class="bordered" id="covid-results"></table>
       </div>
+      <div class="spinner"></div>
     </div>
 
     <!-- Compiled and minified JavaScript -->

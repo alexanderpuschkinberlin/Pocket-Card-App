@@ -1,25 +1,24 @@
 const COUNTRIES = {
-  "Austria": "at",
-  "Belgium": "be",
-  "Switzerland": "ch",
+  Austria: "at",
+  Belgium: "be",
+  Switzerland: "ch",
   "Czech Republic": "cz",
-  "Germany": "de",
+  Germany: "de",
   "United Kingdom": "uk",
-  "Spain": "es",
-  "Finland": "fi",
-  "France": "fr",
-  "Greece": "gr",
-  "Hungary": "hu",
-  "Ireland": "ie",
-  "Italy": "it",
-  "Netherlands": "nl",
-  "Norway": "no",
-  "Poland": "pl",
-  "Portugal": "pt",
-  "Sweden": "se",
-  "Slovenia": "si"
-}
-
+  Spain: "es",
+  Finland: "fi",
+  France: "fr",
+  Greece: "gr",
+  Hungary: "hu",
+  Ireland: "ie",
+  Italy: "it",
+  Netherlands: "nl",
+  Norway: "no",
+  Poland: "pl",
+  Portugal: "pt",
+  Sweden: "se",
+  Slovenia: "si",
+};
 
 //content for the additional info box in the RUSH Card VIEW
 var rushInfo = {
@@ -67,40 +66,9 @@ $(document).ready(function () {
   $(".sidenav").sidenav({ edge: "right" });
 });
 
-// Switch from Homescreen to COVID Page
-$(".covidstats").click(openCOVID);
-
-function openCOVID() {
-  $(".brand-logo").text("COVID Stats");
-  $("#rushcard").addClass("hide");
-  $("#homescreen").addClass("hide");
-  $("#covid").removeClass("hide");
-  console.log("was open");
-}
-
-//Switch from Homescreen to Card Screen
-$("#rush").click(openCard);
-
-function openCard() {
-  $(".brand-logo").text("RUSH Protocol");
-  $("#rushcard").removeClass("hide");
-  $("#homescreen").addClass("hide");
-}
-
-//Close Card, when I click the button
-$(".close").click(closeCard);
-function closeCard() {
-  $(".brand-logo").text("Pocket Card App");
-  $("#rushcard").addClass("hide");
-  $("#covid").addClass("hide");
-  $("#homescreen").removeClass("hide");
-  console.log("it was closed");
-}
-
 // //navigate tabs
 $(document).ready(function () {
   $(".tabs").tabs();
-  $(".brand-logo").text("RUSH Protocol");
   $("#rushcard").addClass("hide");
   $("#homescreen").removeClass("hide");
 });
@@ -121,30 +89,31 @@ function showRushItemInfo(event) {
   }
 }
 
-//Populate COVID Country Dropdown 
+//Populate COVID Country Dropdown
 
-$('#country-selection').append(
-  Object.keys(COUNTRIES).map(country => {
+$("#country-selection").append(
+  Object.keys(COUNTRIES).map((country) => {
     return $("<option>", {
-      text: country, value: COUNTRIES[country]
+      text: country,
+      value: COUNTRIES[country],
     });
-  }));
+  })
+);
 
 // Initiate Dropdowns
 
 $(document).ready(function () {
-  $('select').formSelect();
+  $("select").formSelect();
 });
-
 
 //Toggle Spinner
 
 function toggleSpinner() {
   var visibility = $(".spinner").css("visibility");
   if (visibility == "hidden") {
-    $(".spinner").css({ visibility: "visible" })
+    $(".spinner").css({ visibility: "visible" });
   } else {
-    $(".spinner").css({ visibility: "hidden" })
+    $(".spinner").css({ visibility: "hidden" });
   }
 }
 
@@ -207,17 +176,17 @@ function populateSummary(data) {
 
 /// COVID-19 API
 
-const COVID_API_ENDPOINT = template`https://covid19-eu-data-api-gamma.now.sh/api/countries?alpha2=${"countryCode"}&days=${"days"}`
+const COVID_API_ENDPOINT = template`https://covid19-eu-data-api-gamma.now.sh/api/countries?alpha2=${"countryCode"}&days=${"days"}`;
 
 const HEADERS_MAP = {
-  "cases": "Cases",
+  cases: "Cases",
   "cases/100k pop.": "Cases /100k Pop",
-  "deaths": "Deaths",
+  deaths: "Deaths",
   "deaths/100k pop.": "Deaths /100k Pop",
-  "tests": "Tests",
-  "hospitalized": "Hospitalized",
-  "intensive_care": "Intensive Care"
-}
+  tests: "Tests",
+  hospitalized: "Hospitalized",
+  intensive_care: "Intensive Care",
+};
 
 clearTableDiv();
 //getCOVIDInfo();
@@ -232,14 +201,13 @@ function getCOVIDInfo() {
 }
 
 function getDaysBack() {
-  var daysBackInput = $("#days-back")
+  var daysBackInput = $("#days-back");
   var daysBack = daysBackInput.val();
   return daysBack;
-
 }
 
 function getSelectedCountry() {
-  var selectionDiv = $("#country-selection")
+  var selectionDiv = $("#country-selection");
   var selectedCountry = selectionDiv.val();
   return selectedCountry;
 }
@@ -281,11 +249,11 @@ function populateTable(data) {
   var tableBodyDiv = $("<tbody>");
   var headersDiv = createTableRowDiv(headers, HEADERS_MAP, "<th>");
   tableHeaderDiv.append(headersDiv);
-  console.log(locationBase)
-  records.forEach(record => {
+  console.log(locationBase);
+  records.forEach((record) => {
     var recordRowDiv = createTableRowDiv(headers, record, "<td>", HEADERS_MAP);
     tableBodyDiv.append(recordRowDiv);
-  })
+  });
   tableDiv.append(tableHeaderDiv);
   tableDiv.append(tableBodyDiv);
 }
@@ -293,23 +261,21 @@ function populateTable(data) {
 function createTableRowDiv(headers, entry, type, reference) {
   reference = reference || entry;
   var tableRowDiv = $("<tr>");
-  headers.forEach(head => {
+  headers.forEach((head) => {
     if (entry[head] && reference[head]) {
       var colValue = proper(entry[head]);
       var colsDiv = $(type, { text: colValue });
       tableRowDiv.append(colsDiv);
     }
-  })
+  });
   return tableRowDiv;
 }
 
 function proper(value) {
   if (typeof value == "string") {
-    return toTitleCase(value)
+    return toTitleCase(value);
   } else if (typeof value == "number") {
-    return value.toLocaleString(
-      "de-DE",
-      { maximumFractionDigits: 0 })
+    return value.toLocaleString("de-DE", { maximumFractionDigits: 0 });
   }
 }
 
@@ -327,7 +293,7 @@ function getLocationBase(headers) {
     return "nuts_1";
   }
   return "State Wide";
-};
+}
 
 function template(strings, ...keys) {
   return function (...values) {
@@ -342,10 +308,7 @@ function template(strings, ...keys) {
 }
 
 function toTitleCase(str) {
-  return str.replace(
-    /\w\S*/g,
-    function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    }
-  );
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
 }
