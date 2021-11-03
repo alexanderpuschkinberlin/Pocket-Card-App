@@ -23,7 +23,7 @@ const COUNTRIES = {
 //content for the additional info box in the RUSH Card VIEW
 var rushInfo = {
   1: {
-    title: "Suche beim Herz nach:",
+    title: "Suche nach:",
     steps: [
       "Perikarderguss/tamponade",
       "Akute Rechtsherzbelastung",
@@ -31,34 +31,40 @@ var rushInfo = {
     ],
   },
   2: {
-    title: "Suche beim Inferiore VC nach:",
+    title: "Suche nach:",
+    steps: [
+      "Perikarderguss/tamponade",
+      "Akute Rechtsherzbelastung",
+      "Linksventrikuläre Pumpfunktion",
+    ],
+  },
+  3: {
+    title: "Suche nach:",
     steps: ["Volumenstatus: VCI kollaptisch", "VCI > 2,5 cm", "VCI < 1,5 cm"],
   },
-  3: { title: "Suche beim Morrison nach:", steps: ["Freie Flüssigkeit"] },
   4: {
-    title: "Suche beim der Aorta nach:",
-    steps: ["Aorta Durchmesser > 3 cm"],
+    title: "Suche nach:",
+    steps: ["Freie Flüssigkeit"],
   },
   5: {
-    title: "Suche beim Pneumothorax nach:",
-    steps: [
-      "Lungengleiten",
-      "B-Lines",
-      "Lungenpuls",
-      "M-Mode: Seashore-Sign, Barcode-Sign",
-    ],
+    title: "Suche nach:",
+    steps: ["Freie Flüssigkeit"],
   },
   6: {
     title: "Suche beim XYZ nach:",
-    steps: ["Anweisung", "Anweisung", "Anweisung"],
+    steps: ["Freie Flüssigkeit"],
   },
   7: {
-    title: "Suche beim XYZ nach:",
-    steps: ["Anweisung", "Anweisung", "Anweisung"],
+    title: "Suche nach:",
+    steps: ["Aorta Durchmesser > 3 cm"],
   },
   8: {
-    title: "Suche beim XYZ nach:",
-    steps: ["Anweisung", "Anweisung", "Anweisung"],
+    title: "Suche nach:",
+    steps: [
+      "Pneumothorax",
+      "Lungengleiten, B-Lines",
+      "M-Mode: Lungenpuls, Seashore-Sign, Barcode-Sign",
+    ],
   },
 };
 
@@ -170,7 +176,11 @@ function populateSummary(data) {
   outputEl.html("");
   outputEl.append([
     $("<div>", { html: data.extract_html }),
-    $("<a>", { text: "Read more..", href: data.content_urls.desktop.page }),
+    $("<a>", {
+      text: "Read more..",
+      href: data.content_urls.desktop.page,
+      target: "_blank",
+    }),
   ]);
 }
 
