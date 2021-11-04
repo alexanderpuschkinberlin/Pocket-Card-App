@@ -18,7 +18,7 @@ The Pocket Card App has been designed and developed to fullfill the need of medi
 - Materialize CSS
 - API Access via GET Method
 
-## Screenshot
+## Screenshot / Demo
 
 ![Demo](./assets/img/app-demo-gif.gif)
 
@@ -32,4 +32,4 @@ Please find the relevant links here:
 
 ---
 
-© 2021 Alexander Puschkin | All Rights Reserved.
+© 2021 | All Rights Reserved.
