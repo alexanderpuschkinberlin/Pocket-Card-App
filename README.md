@@ -11,7 +11,7 @@ The Pocket Card App has been designed and developed to fullfill the need of medi
 - Quick lookup of additonal information via integrated wikipedia search bar
 - Interactive covid statistics section due to current pandemic situation in 2021
 
-## Technoligies used:
+## Technologies used:
 
 - Javasccript
 - jQuery
