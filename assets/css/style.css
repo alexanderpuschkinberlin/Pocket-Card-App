@@ -1,16 +1,12 @@
-.sidenav {
-  background-color: orange;
-}
-
-.sidenav li > * {
-  color: white !important;
-}
-
-.page-content {
+/* General dimensions of content on each page (what width is covered)*/
+.page-content,
+.about {
+  margin-top: 10px;
   width: 70vw;
   max-width: 840px;
 }
 
+/* Styling Preview Cards*/
 .page-content--image {
   max-width: 180px;
 }
@@ -27,15 +23,14 @@
   transform: translate(-50%, -50%);
 }
 
-.container a {
-  padding-left: 20px;
+.traverse {
+  margin-bottom: 20px;
 }
 
+/*when I hover over the card*/
 .traverse:hover {
-  border: red solid 2px;
-  /* background-color: cornflowerblue;
-  opacity: 0.8;
-  transition: 1s; */
+  border-top: #4c8076 solid 2px;
+  opacity: 0.7;
 }
 
 .card-main-image {
@@ -44,9 +39,6 @@
   max-width: 230px;
   height: auto;
   padding-right: 10px;
-
-  /* max-width: 100% !important; */
-  /* min-width: 100px !important; */
 }
 
 .rush-card-container {
@@ -59,7 +51,7 @@ label > span {
 
 #wiki-results,
 #search-input {
-  color: white;
+  padding-left: 5px;
 }
 
 #covid-table-container {
@@ -131,4 +123,8 @@ label > span {
 
 #searchfield {
   background-color: #c4fcf0;
+}
+
+.sidenav li > * {
+  color: white !important;
 }

@@ -18,16 +18,18 @@
     <title>Pocket Card App</title>
   </head>
   <body>
-    <div class="homescreen">
-      <!-- Navbar medium up-->
+    <div class="navbarsection">
+      <!-- Navbar visible for large and extra large screens (992px+ width)-->
       <div class="navbar-fixed">
         <nav class="nav-wrapper">
           <div class="container">
-            <a href="#" class="brand-logo left">About</a>
+            <span class="brand-logo left">About</span>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.html">Home</a></li>
               <li><a href="covid.html">COVID Stats</a></li>
-              <li><a href="about.html">About</a></li>
+              <li style="background-color: #c4fcf0">
+                <a style="color: #4c8076" href="about.html">About</a>
+              </li>
             </ul>
             <a
               href="#"
@@ -40,7 +42,7 @@
         </nav>
       </div>
 
-      <!-- Navbar medium down-->
+      <!-- Navbar visible for small and medium screens (992px- width)  -->
       <ul class="sidenav" id="mobile-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="covid.html">COVID Stats</a></li>
@@ -49,7 +51,45 @@
     </div>
 
     <!-- Content of the Page here-->
-    <div></div>
+    <div class="container about">
+      <ul class="collection with-header">
+        <!-- Development -->
+        <li class="collection-header blue lighten-5"><h5>Development</h5></li>
+        <li class="collection-item">
+          <p>
+            Alexander Puschkin, Mohammed Allam, Lars Euler<br />
+            Designed and developed in the context of the
+            <a href="https://bootcamp.esmt.berlin/"
+              >Coding Bootcamp Cohort Autumn/Winter 21/22</a
+            >
+          </p>
+        </li>
+        <!-- Content -->
+        <li class="collection-header blue lighten-5"><h5>Content</h5></li>
+        <li class="collection-item">
+          <p>Content in collaboration with Name<br /></p>
+        </li>
+
+        <!-- Feedback -->
+        <li class="collection-header blue lighten-5"><h5>Feedback</h5></li>
+        <li class="collection-item">
+          <p>
+            Ideas for improvement?<br />
+            Input regarding the content?<br />
+            Please write us a mail at info@pocketcardapp.com
+          </p>
+        </li>
+
+        <!-- Version -->
+        <li class="collection-header blue lighten-5"><h5>Version</h5></li>
+        <li class="collection-item">
+          <p>
+            Version 1.0<br />
+            Latest Update: November 6th, 2021
+          </p>
+        </li>
+      </ul>
+    </div>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
