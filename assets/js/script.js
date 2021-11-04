@@ -62,8 +62,8 @@ var rushInfo = {
     title: "Suche nach:",
     steps: [
       "Pneumothorax",
-      "Lungengleiten, B-Lines",
-      "M-Mode: Lungenpuls, Seashore-Sign, Barcode-Sign",
+      "-> Lungengleiten, B-Lines",
+      "-> M-Mode: Lungenpuls, Seashore-Sign, Barcode-Sign",
     ],
   },
 };
@@ -82,9 +82,11 @@ $(document).ready(function () {
 //event listner within the card view to trigger the additional Information Box
 $("label > span").click(showRushItemInfo);
 function showRushItemInfo(event) {
+  $("#rush-card--transition").addClass("scale-in");
   var selectedItem = event.target.getAttribute("data-listItem");
   var itemInfo = rushInfo[selectedItem];
   $("#rushInfoCard-title").text(itemInfo.title);
+
 
   $("#rushInfoCard").empty();
   var info = "";

@@ -10,9 +10,25 @@
   width: 70vw;
   max-width: 840px;
 }
+/* tudors improvements on wednesday */
+.rush-list-item {
+  line-height: 1.5em;
+  height: 3.5em;
+  overflow: hidden;
+  border-bottom: 1px rgb(172, 172, 172) solid;
+}
+
+.test-border {
+  border: 1px red solid;
+}
 
 .page-content--image {
   max-width: 180px;
+}
+
+.info-text--styling {
+  font-size: 10px;
+  font-style: italic;
 }
 
 .preview {
