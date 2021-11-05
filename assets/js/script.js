@@ -51,7 +51,7 @@ var rushInfo = {
     steps: ["Freie Flüssigkeit"],
   },
   6: {
-    title: "Suche beim XYZ nach:",
+    title: "Suche nach:",
     steps: ["Freie Flüssigkeit"],
   },
   7: {
@@ -86,7 +86,6 @@ function showRushItemInfo(event) {
   var selectedItem = event.target.getAttribute("data-listItem");
   var itemInfo = rushInfo[selectedItem];
   $("#rushInfoCard-title").text(itemInfo.title);
-
 
   $("#rushInfoCard").empty();
   var info = "";
@@ -131,7 +130,7 @@ function toggleSpinner() {
 
 const WIKIPEDIA_API_END_POINT = template`https://en.wikipedia.org/api/rest_v1/page/summary/${"searchTerm"}`;
 
-// Getting results from wikipedia main function 
+// Getting results from wikipedia main function
 function getSearchResultsFromWiki() {
   var inputEl = $("#search-input");
   var searchTerm = inputEl.val().replace(/\s/g, "_");
@@ -176,7 +175,6 @@ function addToLocalStorage(searchTerm, data) {
   var stringData = JSON.stringify(data);
   localStorage.setItem(searchTerm, stringData);
 }
-
 
 // populating the results div and adding the read more link
 function populateSummary(data) {
@@ -234,7 +232,6 @@ function getDaysBack() {
   return daysBack;
 }
 
-
 // Getting selected country from dropdown
 function getSelectedCountry() {
   var selectionDiv = $("#country-selection");
@@ -283,7 +280,7 @@ function populateTable(data) {
   // Create Table Header
   var headersDiv = createTableRowDiv(headers, HEADERS_MAP, "<th>");
   tableHeaderDiv.append(headersDiv);
-  // Create Table Results Rows 
+  // Create Table Results Rows
   records.forEach((record) => {
     var recordRowDiv = createTableRowDiv(headers, record, "<td>", HEADERS_MAP);
     tableBodyDiv.append(recordRowDiv);

@@ -2,7 +2,7 @@
 
 ## Description
 
-The Pocket Card App has been designed and developed to fullfill the need of medical practitioners dealing with the information overflow during their daily routines while working with patients. In the App they can find critical examinations and guidelines for medication that they can look up as fast as tacking out a printed info card from their doctor's coat pocket - just with the benefit of doing it via their smartphone that they do have anyway always in their pocket.
+The Pocket Card App has been designed and developed to fullfill the need of medical practitioners dealing with the information overflow during their daily routines while working with patients. In the App they can find critical examinations and guidelines for medication that they can look up as fast as taking out a printed info card from their doctor's coat pocket - just with the benefit of doing it via their smartphone that they do have anyway always in their pocket.
 
 ## Features
 
@@ -11,7 +11,7 @@ The Pocket Card App has been designed and developed to fullfill the need of medi
 - Quick lookup of additonal information via integrated wikipedia search bar
 - Interactive covid statistics section due to current pandemic situation in 2021
 
-## Technoligies used:
+## Technologies used:
 
 - Javasccript
 - jQuery
