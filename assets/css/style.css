@@ -74,6 +74,11 @@ label > span {
   font-size: smaller;
 }
 
+.country-selection{
+  transition: none !important; 
+  transform: none !important; 
+}
+
 .spinner {
   visibility: hidden;
   position: fixed;
